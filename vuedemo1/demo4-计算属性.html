@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+<!--view 层 模板  计算属性-->
+<div id="app">
+  currentTimel：<p>{{currentTimel()}}</p>
+<!--  currentTimel1是个属性来取-->
+  currentTimel1：<p>{{currentTimel1}}</p>
+  {{message}}
+
+</div>
+<!--    导入vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script>
+  var  vm = new Vue({
+    el: "#app",
+    //  Model:数据
+    data: {
+      message :"hello world!",
+      type: "a",
+      items:[
+        {messagei: "学习vue" },
+        {messagei: "学习java"}
+      ]
+    },
+    //方法必须定义到vue的methods对象中
+    methods:{
+      currentTimel:function (){
+        return Date.now();//返回一个时间戳
+      },
+      sayHi: function (event){
+        alert(this.message);
+      }
+    },
+    computed:{//计算属性：methods和computed中的方法名不能重名，重名之后只会调用methods方法
+      currentTimel1:function (){
+        return Date.now();//返回一个时间戳
+      },
+    }
+
+  });
+</script>
+</body>
+</html>
